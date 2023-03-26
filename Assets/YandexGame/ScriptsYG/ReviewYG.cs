@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace YG {
+namespace YG
+{
     public class ReviewYG : MonoBehaviour
     {
         [Tooltip("Открывать окно авторизации, если пользователь не авторизован.")]
         public bool authDialog;
+        [Tooltip("Активировать оценку игры на мобильных устройствах? На мобильных устройствах открытие окна для оценки может вызывать зависание игры!")]
+        public bool showOnMobileDevice;
+        [Space(15)]
         public UnityEvent ReviewAvailable;
         public UnityEvent ReviewNotAvailable;
         public UnityEvent LeftReview;
@@ -31,6 +35,16 @@ namespace YG {
 #if UNITY_EDITOR
             YandexGame.EnvironmentData.reviewCanShow = true;
 #endif
+
+            if (!showOnMobileDevice && (YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet))
+                YandexGame.EnvironmentData.reviewCanShow = false;
+
+            if (!authDialog && !YandexGame.auth)
+            {
+                ReviewNotAvailable.Invoke();
+                return;
+            }
+
             if (YandexGame.EnvironmentData.reviewCanShow)
                 ReviewAvailable.Invoke();
             else ReviewNotAvailable.Invoke();

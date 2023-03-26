@@ -125,10 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46beb293269f8f54db8c285802bf8e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RTB_Number: 0
+  RTB_Number: 5
   device: 0
   minSize: {x: 20, y: 20}
-  codeExecutionTimer31Sec: 0
   rt: {fileID: 6200872166043672732}
   UIScaleMode: 0
   referenceResolution: {x: 1920, y: 1080}

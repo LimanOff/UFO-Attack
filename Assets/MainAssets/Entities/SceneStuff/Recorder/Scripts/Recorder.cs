@@ -7,6 +7,12 @@ public class Recorder : MonoBehaviour
 
     public void RecordToLeaderBoard()
     {
-        YandexGame.NewLeaderboardScores("HowMuchDistanceCompleted", _distanceCounter.Distance);
+        int currentDistance = _distanceCounter.Distance;
+
+        if(currentDistance > YandexGame.savesData.maxDistance)
+        {
+            YandexGame.NewLeaderboardScores("HowMuchDistanceCompleted", currentDistance);
+            YandexGame.savesData.maxDistance = currentDistance;
+        }
     }
 }

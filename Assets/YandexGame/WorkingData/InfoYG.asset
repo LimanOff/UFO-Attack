@@ -15,14 +15,14 @@ MonoBehaviour:
   scopes: 1
   playerPhotoSize: 0
   leaderboardEnable: 1
-  saveCloud: 0
+  saveCloud: 1
   flush: 0
   saveCloudInterval: 5
-  fullscreenAdChallenge: 1
-  fullscreenAdInterval: 50
+  AdWhenLoadingScene: 1
+  fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
-  LocalizationEnable: 0
-  callingLanguageCheck: 1
+  LocalizationEnable: 1
+  callingLanguageCheck: 0
   translateMethod: 0
   domainAutoLocalization: com
   CSVFileTranslate:
@@ -31,7 +31,7 @@ MonoBehaviour:
   languages:
     ru: 1
     en: 1
-    tr: 0
+    tr: 1
     az: 0
     be: 0
     he: 0
@@ -114,6 +114,6 @@ MonoBehaviour:
     de: 
     hi: 
   debug: 1
-  staticRBTInGame: 1
-  sitelock: 0
+  autoBuildArchiving: 1
+  staticRBTInGame: 0
   SDKStartDelay: 0

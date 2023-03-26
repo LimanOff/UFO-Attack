@@ -22,7 +22,7 @@ public class DistanceOutputer : MonoBehaviour
 
     private void Output()
     {
-        _counter.text = "Пройдено: " + _distanceCounter.Distance;
+        _counter.text = _distanceCounter.Distance.ToString();
         _distancePassed.value = _distanceCounter.Distance;
     }
 }

@@ -41,7 +41,28 @@ namespace YG
         {
             textUIComponent = GetComponent<Text>();
             textMeshComponent = GetComponent<TextMesh>();
-            infoYG = GameObject.Find("YandexGame").GetComponent<YandexGame>().infoYG;
+
+            infoYG = GetInfoYG();
+        }
+
+        public InfoYG GetInfoYG()
+        {
+            YandexGame yg = (YandexGame)GameObject.FindObjectOfType<YandexGame>();
+
+            if (yg)
+            {
+                return yg.infoYG;
+            }
+            else
+            {
+#if UNITY_EDITOR
+                InfoYG infoYGFromConfig = Insides.ConfigYG.GetInfoYG();
+                return infoYGFromConfig;
+#else
+                return null;
+#endif
+            }
+
         }
 
         private void OnEnable()

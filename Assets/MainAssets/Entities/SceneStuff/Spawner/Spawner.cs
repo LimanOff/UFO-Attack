@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     private Vector3 CalculateRandomPosition()
     {
-        Vector3 randomPos = _spawnPoints[Random.Range(0,_spawnPoints.Length-1)].transform.position;
+        Vector3 randomPos = _spawnPoints[Random.Range(0,_spawnPoints.Length)].transform.position;
         return randomPos;
     }
 }

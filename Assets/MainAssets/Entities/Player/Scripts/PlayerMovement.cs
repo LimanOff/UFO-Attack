@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CheckerPlayerStatement.PlayerState == CheckerPlayerStatement.PlayerStatement.Stay)
         {
-            //_rb.velocity = new Vector2(0, 0);
             _rb.isKinematic = true;
         }
         if (CheckerPlayerStatement.PlayerState == CheckerPlayerStatement.PlayerStatement.Moving)
@@ -42,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.isKinematic = false;
 
-        Time.timeScale = 1;
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
 
         _rb.velocity = new Vector2(0,0);
         _rb.AddForce(Vector2.up * _jumpForce,ForceMode2D.Force);

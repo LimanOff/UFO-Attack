@@ -39,10 +39,11 @@ public class UIEvents : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _diePanel;
-
     [SerializeField] private GameObject _winPanel;
 
+    [Header("Scripts")]
     [SerializeField] private DistanceCounter _distanceCounter;
+    [SerializeField] private Recorder _recorder;
 
     private void OnEnable()
     {
@@ -164,10 +165,12 @@ public class UIEvents : MonoBehaviour
         int currentScene = SceneManager.GetActiveScene().buildIndex + 0;
 
         _distanceCounter.StopCount();
+        
+        _recorder.RecordToLeaderBoard();
 
-	_rewardRespawnButton.interactable = true;
+	    _rewardRespawnButton.interactable = true;
 
-	DeathZone.PlayerDeadCounter = 0;
+	    DeathZone.PlayerDeadCounter = 0;
 
         SceneManager.LoadScene(currentScene);
     }

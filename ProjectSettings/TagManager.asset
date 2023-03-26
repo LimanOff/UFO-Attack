@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - TimeStopPanel
+  - NotTimeStopPanel
   - DiePanel
-  - PausePanel
   - GamePanel
   layers:
   - Default
